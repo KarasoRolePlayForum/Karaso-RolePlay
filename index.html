@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Karaso RolePlay | انجمن</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="brand-mark">K</span><div><b>KARASO</b><small>ROLEPLAY FORUM</small></div></div>
+  <nav><a class="active" href="#" data-view="home">انجمن</a><a href="#" data-view="topics">آخرین موضوعات</a><a href="#" data-view="rules">قوانین</a></nav>
+  <div class="auth"><span id="userBadge">مهمان</span><button class="btn outline" id="loginBtn">ورود / ثبت‌نام</button><button class="btn outline" id="adminPanelBtn" onclick="renderAdminPanel()" style="display:none">🛡 مدیریت فروم</button></div>
+</header>
+<div class="hero"><div class="hero-copy"><span class="eyebrow">KARASO ROLEPLAY COMMUNITY</span><h1>انجمن رسمی <em>کاراسو رول‌پلی</em></h1><p>گفت‌وگو کن، درخواستت رو ثبت کن و بخشی از جامعه کاراسو باش.</p><div class="hero-actions"><button class="btn orange" id="newTopicHero">＋ ایجاد موضوع جدید</button><button class="btn outline" data-view="topics">مشاهده آخرین موضوعات</button></div></div><div class="hero-stat"><div><strong id="topicCount">12</strong><small>موضوعات</small></div><div><strong id="postCount">36</strong><small>پاسخ‌ها</small></div><div><strong>24/7</strong><small>انجمن آنلاین</small></div></div></div>
+<main class="layout">
+<aside class="sidebar">
+  <section class="panel welcome"><h3>خوش آمدید به کاراسو</h3><p>برای ارسال موضوع یا پاسخ، ابتدا وارد حساب خود شوید.</p><button class="btn orange full" id="loginSide">ورود به انجمن</button></section>
+  <section class="panel"><h3>📊 آمار انجمن</h3><div class="statline"><span>اعضای انجمن</span><b id="memberCount">128</b></div><div class="statline"><span>موضوع‌ها</span><b id="sideTopicCount">12</b></div><div class="statline"><span>پیام‌ها</span><b id="sidePostCount">36</b></div></section>
+  <section class="panel"><h3>🔥 موضوعات محبوب</h3><div id="popular"></div></section>
+  <section class="panel note"><h3>اطلاعیه مهم</h3><p>لطفاً قبل از ارسال موضوع، قوانین انجمن را مطالعه کنید.</p><a data-view="rules">مشاهده قوانین ←</a></section>
+</aside>
+<section class="content" id="content"></section>
+</main>
+<footer>© 2026 Karaso RolePlay — انجمن رسمی سرور</footer>
+<div class="modal hidden" id="modal"><div class="modal-card"><button class="close" id="closeModal">×</button><div id="modalBody"></div></div></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>\n<script src="app.js"></script>
+</body></html>
