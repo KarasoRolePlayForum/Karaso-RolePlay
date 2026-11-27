@@ -27,25 +27,14 @@ async function portalRefresh(session){
   const {data,error}=await portalSb.from('profiles').select('display_name,role,status').eq('id',user.id).maybeSingle();
   if(error)throw error;
   profile=data;
-  if(!profile){const metaName=String(user.user_metadata?.display_name||'').trim();if(metaName){const created=await portalSb.from('profiles').insert({id:user.id,email:user.email,display_name:metaName,role:'admin',status:'pending'}).select('display_name,role,status').single();if(created.error)throw created.error;profile=created.data;}}
  }catch(error){console.error('Profile read failed:',error)}
- const displayName=String(profile?.display_name||'').trim();
- p$('#portalAuthState').textContent=profile?.status==='pending'?'درخواست ادمینی در انتظار تأیید Owner':profile?.status==='rejected'?'درخواست ادمینی رد شده · دسترسی عادی سایت':displayName?`بازیکن: ${displayName}`:'حساب فعال است';
+ const displayName=String(profile?.username||profile?.display_name||user.user_metadata?.username||user.user_metadata?.display_name||'').trim();
+ let requestStatus=null;
+ try{const {data:r,error:re}=await portalSb.from('staff_admin_requests').select('status').eq('user_id',user.id).maybeSingle();if(!re)requestStatus=r?.status||null;}catch(e){console.warn('Request status unavailable',e)}
+ p$('#portalAuthState').textContent=profile?.role==='admin'&&profile?.status==='approved'?'دسترسی ادمین فعال است':profile?.role==='owner'&&profile?.status==='approved'?'دسترسی Owner فعال است':requestStatus==='pending'?'درخواست ادمینی در انتظار تأیید Owner':requestStatus==='rejected'?'درخواست ادمینی رد شده · دسترسی عادی سایت':displayName?`بازیکن: ${displayName}`:'حساب فعال است';
  if(profile?.role==='admin'&&profile?.status==='approved')p$('#portalAdminPanel')?.classList.remove('hidden');
  if(profile?.role==='owner'&&profile?.status==='approved')p$('#portalOwnerPanel')?.classList.remove('hidden');
 }
-async function portalSaveGameName(userId,displayName){
- const {data:existing,error:readError}=await portalSb.from('profiles').select('id').eq('id',userId).maybeSingle();
- if(readError)throw readError;
- if(existing){
-  const {error}=await portalSb.from('profiles').update({display_name:displayName}).eq('id',userId);
-  if(error)throw error;
- }else{
-  const {error}=await portalSb.from('profiles').insert({id:userId,email:(await portalSb.auth.getUser()).data.user?.email,display_name:displayName,role:'admin',status:'pending'});
-  if(error)throw error;
- }
-}
-
 p$('#portalAuthOpen').onclick=()=>portalOpen('login');
 p$('#portalAuthClose').onclick=()=>p$('#portalAuthOverlay').classList.remove('show');
 p$('#portalAuthToggle').onclick=()=>portalOpen(portalMode==='login'?'signup':'login');
@@ -63,15 +52,14 @@ p$('#portalAuthForm').onsubmit=async e=>{
  try{
   const mode=portalMode;
   if(mode==='signup'&&!displayName)throw new Error('نام داخل بازی را وارد کن.');
-  const r=mode==='login'?await portalSb.auth.signInWithPassword({email,password}):await portalSb.auth.signUp({email,password,options:{data:{display_name:displayName}}});
+  const r=mode==='login'?await portalSb.auth.signInWithPassword({email,password}):await portalSb.auth.signUp({email,password,options:{data:{username:displayName,display_name:displayName}}});
   if(r.error)throw r.error;
   if(mode==='signup'){
    if(!r.data.session){p$('#portalAuthError').textContent='ثبت‌نام انجام شد؛ ایمیلت را تأیید کن و سپس وارد شو.';return}
-   await portalSaveGameName(r.data.user.id,displayName);
-  }
+   }
   p$('#portalAuthOverlay').classList.remove('show');
   await portalRefresh(r.data.session);
-  if(mode==='signup')p$('#portalAuthState').textContent='درخواست عضویت ثبت شد؛ منتظر بررسی Owner باشید.';
+  if(mode==='signup')p$('#portalAuthState').textContent='حساب ساخته شد؛ درخواست شما برای بررسی Owner ثبت شد.';
   const dest=new URLSearchParams(location.search).get('return');
   if(['shop','community'].includes(dest))location.href='./'+dest+'.html';
  }catch(err){p$('#portalAuthError').textContent=err.message}

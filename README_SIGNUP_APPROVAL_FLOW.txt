@@ -1,18 +1,19 @@
-KARASO - Signup and Owner Approval
+KARASO ROLEPLAY - Signup and Owner Approval
 
-New accounts are created as role=admin and status=pending by the Supabase auth.users trigger.
-The user can sign in and use the public homepage, but portal-auth.js only displays the Admin panel link when role=admin AND status=approved.
-Owner panel has a separate pending-requests list with explicit Approve / Reject actions.
-Approve requires a rank from 1 to 8 and uses the existing staff_owner_update_member RPC.
-Reject sets status=rejected; the user remains a normal signed-in site visitor and never sees the Admin panel.
+The database approval SQL has already been run by the site owner.
+This package now connects the homepage and Owner panel to public.staff_admin_requests.
 
-If the auth trigger/policies in your current Supabase database are not already installed, run KARASO_SIGNUP_APPROVAL_FLOW.sql once in Supabase SQL Editor.
-Do NOT rerun the full database setup SQL for this change.
+Flow:
+- Signup creates a normal profile through the original handle_new_user() trigger.
+- The second trigger creates a row in staff_admin_requests.
+- The public homepage does not show the Admin panel unless profiles.role=admin AND profiles.status=approved.
+- Owner sees pending requests in Owner > اعضا و درخواست‌ها.
+- Approve asks for rank 1-8 and title, calls approve_staff_admin_request(), then updates rank/title with staff_owner_update_member().
+- Reject calls reject_staff_admin_request(); the profile remains a normal user.
 
-Files changed:
-- portal-auth.js
-- owner.html
-- staff-console.js
-- KARASO_SIGNUP_APPROVAL_FLOW.sql (optional migration)
+After uploading these website files, run KARASO_REQUEST_STATUS_POLICY.sql once in Supabase SQL Editor.
+This grants each user read access only to their own request status. Owner's existing request-reading policy remains.
+Do not rerun the full database setup SQL or the earlier approval SQL.
 
-Important: The existing Owner account is not changed. The approval action uses the existing Owner-only RPC staff_owner_update_member.
+Upload/replace the files in the repository root. Keep supabase-config.js unchanged unless the Supabase project itself changes.
+This package was checked for JavaScript syntax and ZIP integrity, but not live-tested against the remote Supabase project.
