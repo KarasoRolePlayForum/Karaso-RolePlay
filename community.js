@@ -29,7 +29,7 @@ function selectCategory(id){
  $('#currentCategoryTitle').textContent=categories.find(x=>x[0]===id)?.[1]||'موضوعات';
  loadTopics();
 }
-async function refreshSession(s){session=s;role='customer';if(s?.user){const {data}=await sb.from('profiles').select('role').eq('id',s.user.id).maybeSingle();role=data?.role||'customer'}$('#communityAuthState').textContent=s?.user?'وارد حساب هستید':'برای مشارکت وارد حساب شو';$('#communityLogin').classList.toggle('hidden',!!s?.user);$('#communityLogout').classList.toggle('hidden',!s?.user);$('#ownerPanelLink').classList.toggle('hidden',!['owner','admin'].includes(role));$('#newTopicBtn').classList.toggle('hidden',role!=='owner');loadTopics();loadTickets()}
+async function refreshSession(s){session=s;role='customer';if(s?.user){const {data}=await sb.from('profiles').select('role').eq('id',s.user.id).maybeSingle();role=data?.role||'customer'}$('#communityAuthState').textContent=s?.user?'وارد حساب هستید':'برای مشارکت وارد حساب شو';$('#communityLogin').classList.toggle('hidden',!!s?.user);$('#communityLogout').classList.toggle('hidden',!s?.user);$('#newTopicBtn').classList.toggle('hidden',role!=='owner');loadTopics();loadTickets()}
 function setCommunityAuthMode(mode){
  authMode=mode;
  $('#communityAuthTitle').textContent=mode==='login'?'ورود به حساب':'ساخت حساب';

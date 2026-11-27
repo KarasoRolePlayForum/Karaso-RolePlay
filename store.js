@@ -12,8 +12,6 @@ function bindTabs(id,fn){document.querySelectorAll(`#${id} button`).forEach(b=>b
 async function updateAuth(session){
  currentSession=session;const user=session?.user;
  $('#authOpen').classList.toggle('hidden',!!user);$('#authLogout').classList.toggle('hidden',!user);
- const adminLink=$('#adminLink'),forumLink=$('#forumAdminLink');
- if(adminLink)adminLink.classList.add('hidden');if(forumLink)forumLink.classList.add('hidden');
  if(!user){$('#authState').textContent='برای ثبت سفارش وارد حساب شو';return}
  $('#authState').textContent='حساب فعال است';
  try{
@@ -21,7 +19,6 @@ async function updateAuth(session){
   if(error)throw error;
   const name=String(data?.display_name||'').trim();
   $('#authState').textContent=name?`بازیکن: ${name}`:'حساب فعال است';
-  if(['owner','admin'].includes(data?.role)){adminLink?.classList.remove('hidden');forumLink?.classList.remove('hidden')}
  }catch(error){console.error('Profile read failed:',error)}
 }
 function openOrder(p){selected=p;$('#selectedProduct').textContent=`${p.name} — ${fmt(p.price)} ${p.unit||(p.category==='car'||p.category==='bike'||p.category==='vip'?'تومان':'هزار تومان')}`;$('#orderForm').reset();$('#formError').textContent='';if(!currentSession){$('#orderOverlay').classList.remove('show');openAuth();$('#authError').textContent='برای ثبت سفارش ابتدا وارد حساب کاربری شو.';return}$('#orderOverlay').classList.add('show')}
