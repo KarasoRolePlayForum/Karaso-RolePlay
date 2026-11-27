@@ -10,7 +10,7 @@ FILES
 - password-reset.html: email-based password reset remains available.
 
 IMPORTANT SUPABASE SETTING FOR SIGNUP WITHOUT EMAIL CONFIRMATION
-In Supabase Dashboard for project qgochicianbeexiubnub:
+In Supabase Dashboard for project fagqwohtjdzmvkoeuwel:
 Authentication -> Sign In / Providers -> Email
 Turn OFF "Confirm email" (sometimes shown as "Confirm email address"), then Save.
 This is a dashboard-level setting; browser code cannot safely disable Supabase email confirmation.

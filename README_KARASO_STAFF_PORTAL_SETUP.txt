@@ -5,7 +5,7 @@ IMPORTANT
 - The original pages/assets/scripts are retained in this package. The root index.html now opens the staff portal.
 - The previous public homepage is retained as player-site-index-backup.html.
 - Supabase browser configuration is in supabase-config.js. It currently points to:
-  https://qgochicianbeexiubnub.supabase.co
+  https://fagqwohtjdzmvkoeuwel.supabase.co
   Confirm this is the dedicated NEW staff Supabase project before publishing.
 - Never put a Supabase service_role/secret key in this website. Only the publishable key belongs in supabase-config.js.
 
