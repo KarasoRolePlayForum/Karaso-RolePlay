@@ -1,0 +1,107 @@
+/* KARASO forum layout inspired by the supplied Iran RolePlay screenshots */
+.kr-forum{background:#100d12;color:#eeeaf0;min-height:100vh}
+.kr-top{height:auto;min-height:64px;padding:8px max(calc((100% - 1320px)/2),18px);gap:18px;background:#171717;border-bottom:2px solid #b8953e}
+.kr-top nav{display:flex;gap:7px;align-items:center}.kr-top nav a{padding:9px 13px;border-radius:9px;color:#b9b5bc;font-size:12px}.kr-top nav a.active,.kr-top nav a:hover{background:#d0aa4c;color:#17120d}
+.kr-top .brand b{background:#b8953e;border-radius:10px}.kr-top .account-area{font-size:11px}
+.kr-forum-wrap{max-width:1320px;margin:auto;padding:14px 18px 60px}
+.kr-noticebar{display:grid;gap:8px;margin-bottom:15px}.kr-noticebar span,.kr-noticebar a{display:block;background:#211f22;border:1px solid #343035;border-radius:8px;padding:12px 16px;color:#c7c1ca;font-size:12px;font-weight:700;text-decoration:none}
+.kr-grid{display:grid;grid-template-columns:240px minmax(0,1fr) 300px;gap:16px;align-items:start}
+.kr-side{display:grid;gap:14px;min-width:0}.kr-panel,.kr-welcome,.kr-activity,.kr-category-area,.kr-tickets{background:#211923;border:1px solid #39303c;border-radius:12px;overflow:hidden}
+.kr-panel h3{margin:0;background:#28272a;padding:14px 15px;font-size:14px;display:flex;align-items:center;gap:10px}.kr-panel h3 i{font-style:normal;color:#d8b65c;background:#49301e;border-radius:9px;padding:7px;font-size:17px}
+.kr-panel-body{padding:13px 14px}.kr-person{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #ffffff10}.kr-person span{display:grid;gap:4px}.kr-person strong{font-size:12px}.kr-person small,.kr-muted{font-size:11px;color:#aaa1ad;line-height:1.9}.kr-avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#6e5522;color:#fff}
+.kr-statline{display:flex;justify-content:space-between;gap:8px;border-top:1px solid #ffffff12;padding:10px 0;font-size:11px}.kr-statline b{color:#e6b47b}.kr-welcome{padding:25px 24px;background:radial-gradient(ellipse at 50% 0%,#49304b,#241a29 70%);text-align:center}.kr-welcome small,.kr-section-head small{color:#d49a5d;font-size:9px;letter-spacing:2px;font-weight:800}.kr-welcome h1{font-size:clamp(23px,3vw,38px);margin:10px 0}.kr-welcome h1 em{font-style:normal;color:#ef9d49}.kr-welcome p{font-size:12px;color:#c6bdc8}.kr-welcome-stats{display:flex;justify-content:center;gap:9px;margin-top:17px;flex-wrap:wrap}.kr-welcome-stats b{display:flex;gap:7px;align-items:center;background:#38283a;border:1px solid #65445f;border-radius:9px;padding:9px 13px}.kr-welcome-stats strong{font-size:18px;color:#f0a04d}.kr-welcome-stats small{font-size:10px;color:#d8cbd9}
+.kr-activity{padding:14px;margin-top:14px}.kr-activity h3{font-size:14px;margin:0 0 12px}.kr-activity-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.kr-activity-item{border:1px solid #62472f;border-radius:10px;padding:12px;background:linear-gradient(130deg,#29232a,#1b1a1d);min-width:0}.kr-activity-item b{font-size:11px;color:#e9c79e}.kr-activity-item p{font-size:11px;line-height:1.8;color:#d0c8d2;margin:7px 0}.kr-activity-item small{font-size:9px;color:#a99eaa}
+.kr-category-area{margin-top:14px;padding:14px}.kr-section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}.kr-section-head h2{font-size:19px;margin:5px 0}.kr-hint{font-size:11px;color:#b9aebc;background:#18151b;border:1px solid #39303b;border-radius:8px;padding:10px 12px;margin-bottom:12px;line-height:1.8}
+.kr-category-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.kr-category-card{border:1px solid #454047;border-radius:10px;padding:13px;background:linear-gradient(135deg,#26262a,#1b1b1e);min-width:0;cursor:pointer;transition:.18s}.kr-category-card:nth-child(4n+1){background:linear-gradient(130deg,#18332f,#202225);border-color:#285e50}.kr-category-card:nth-child(4n+2){background:linear-gradient(130deg,#29212a,#202124)}.kr-category-card:nth-child(4n+3){background:linear-gradient(130deg,#332b1c,#202124);border-color:#64502b}.kr-category-card:hover{border-color:#c18b4c;transform:translateY(-2px)}.kr-cat-head{display:flex;justify-content:space-between;gap:8px;align-items:center}.kr-cat-head h3{font-size:13px;margin:0}.kr-cat-icon{width:34px;height:34px;border:1px solid #956b37;border-radius:9px;display:grid;place-items:center;color:#efb56e}.kr-cat-counts{display:flex;gap:6px;margin:10px 0}.kr-cat-counts span{background:#37353a;border-radius:7px;padding:4px 7px;color:#c7c0c8;font-size:9px}.kr-last{border-top:1px solid #ffffff12;padding-top:9px;font-size:10px;color:#d9d1da;line-height:1.8}.kr-last small{display:block;color:#a9a1aa;margin-top:3px}
+.kr-button{border:1px solid #a36e35;border-radius:8px;background:#dc7418;color:#17120d;padding:9px 13px;font:700 11px Vazirmatn;cursor:pointer}.kr-outline,.kr-more{display:block;text-align:center;width:100%;border:1px solid #765a3c;background:#302a27;color:#dfc8a7;padding:9px;border-radius:8px;font:11px Vazirmatn;cursor:pointer;text-decoration:none;margin-top:10px}.kr-topic-list{display:grid;gap:9px}.kr-topic-card{padding:13px;border:1px solid #454047;border-radius:9px;background:#1b1a1e}.kr-topic-card h3{font-size:13px;margin:0 0 7px}.kr-topic-card p{font-size:11px;color:#c5bdc8;line-height:1.8}.kr-topic-meta{font-size:10px;color:#a99eaa}.kr-topic-detail{margin-top:12px;padding:14px;border:1px solid #51404e;border-radius:10px;background:#1c1820}.kr-topic-detail h2{font-size:17px}.kr-ticket-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.kr-tickets{margin-top:14px;padding:14px}.kr-form{background:#1a171d;border:1px solid #3a333d;border-radius:10px;padding:14px}.kr-form h3{font-size:14px;margin-top:0}.kr-form label{display:block;font-size:11px;color:#d3cbd5;margin:10px 0}.kr-form input,.kr-form textarea,.kr-topic-detail textarea,.kr-topic-detail select{box-sizing:border-box;width:100%;padding:10px;border-radius:7px;border:1px solid #48404a;background:#111014;color:#fff;font:12px Vazirmatn;margin-top:6px}.kr-quick a{display:block;padding:9px;border-bottom:1px solid #ffffff12;font-size:11px;color:#d8c6ac}.kr-forum .hidden{display:none!important}.kr-topic-post{border-bottom:1px solid #ffffff15;padding:10px 0;font-size:12px;line-height:1.9}.kr-topic-post .author{color:#e3a75f;font-weight:800}
+@media(max-width:1050px){.kr-grid{grid-template-columns:210px minmax(0,1fr)}.kr-right{grid-column:1/-1;grid-template-columns:repeat(2,minmax(0,1fr))}.kr-right .kr-panel:last-child{display:none}}
+@media(max-width:760px){.kr-top{flex-wrap:wrap;justify-content:center;padding:10px}.kr-top nav{order:3;width:100%;justify-content:center;flex-wrap:wrap}.kr-top .account-area{justify-content:center}.kr-grid{grid-template-columns:1fr}.kr-center{grid-row:1}.kr-left{grid-row:2;grid-template-columns:1fr 1fr}.kr-right{grid-row:3;grid-template-columns:1fr 1fr}.kr-welcome{padding:20px 12px}.kr-category-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.kr-forum-wrap{padding:10px 8px 35px}.kr-left,.kr-right,.kr-ticket-grid{grid-template-columns:1fr}.kr-category-grid{grid-template-columns:1fr}.kr-activity-grid{grid-template-columns:1fr}.kr-section-head{align-items:flex-start;flex-direction:column}.kr-welcome h1{font-size:23px}.kr-top nav a{padding:7px 9px;font-size:10px}}
+
+.kr-category-group{margin:14px 0 20px}.kr-group-title{font-size:14px;margin:0 0 10px;color:#eee2d4;padding-right:2px}.kr-hot-item{padding:11px 0;border-bottom:1px solid #ffffff12;cursor:pointer}.kr-hot-item b{display:block;font-size:11px;line-height:1.8}.kr-hot-item small{display:block;color:#a99eaa;font-size:9px;margin-top:5px}.kr-hot-item:hover b,.kr-activity-item:hover b{color:#f2ad62}.kr-activity-item{cursor:pointer}.kr-topic-detail .forum-btn{margin:5px}.kr-topic-detail .reply-form{margin-top:15px}.kr-topic-detail .topic-post{border-bottom:1px solid #ffffff15;padding:10px 0;line-height:1.9}.kr-topic-detail .author{color:#e5a65d;font-weight:800}.kr-topic-detail .owner-tools{display:flex;gap:8px;margin-top:12px}
+
+.author-line{display:flex;align-items:center;gap:9px}.author-line b{color:#f0b16c}.author-line span{font-size:10px;background:#49352b;color:#f4c28b;border:1px solid #785533;border-radius:20px;padding:3px 9px}.mini-danger{background:#5b2428;color:#ffe1e1;border:1px solid #a34a4e;border-radius:7px;padding:7px 11px;cursor:pointer;font:11px Vazirmatn}.quick-topic-form{display:grid;gap:10px}.quick-topic-form label{display:grid;gap:5px;font-size:11px}.quick-topic-form input,.quick-topic-form select,.quick-topic-form textarea{width:100%;box-sizing:border-box;background:#121015;color:#fff;border:1px solid #514653;border-radius:8px;padding:11px;font:12px Vazirmatn}.quick-topic-form button{justify-self:start}.kr-forum .topic-post{padding:13px;border:1px solid #3e3542;border-radius:9px;margin:10px 0;background:#1a171d}
+
+/* CATEGORY FOCUS: show only the selected category and its topics */
+.kr-forum.kr-category-focus .kr-noticebar,
+.kr-forum.kr-category-focus .kr-side,
+.kr-forum.kr-category-focus .kr-welcome,
+.kr-forum.kr-category-focus .kr-activity,
+.kr-forum.kr-category-focus .kr-tickets,
+.kr-forum.kr-category-focus .kr-top nav,
+.kr-forum.kr-category-focus .kr-top .account-area {display:none!important}
+.kr-forum.kr-category-focus .kr-top {justify-content:center;border-bottom:0;background:transparent;box-shadow:none}
+.kr-forum.kr-category-focus .kr-forum-wrap {max-width:1050px;padding:18px 12px 40px}
+.kr-forum.kr-category-focus .kr-grid {display:block;max-width:100%}
+.kr-forum.kr-category-focus .kr-center {display:block;width:100%}
+.kr-forum.kr-category-focus .kr-category-area {display:block!important;margin:0;padding:clamp(14px,3vw,30px);min-height:70vh;border-color:#76512f;background:#1b171d}
+.kr-forum.kr-category-focus #categoryGrid,
+.kr-forum.kr-category-focus #topicNotice {display:none!important}
+.kr-forum.kr-category-focus #topicList {display:grid!important;gap:12px}
+.kr-forum.kr-category-focus .kr-section-head {display:flex!important}
+.kr-forum.kr-category-focus #topicDetail {display:none!important}
+
+/* TOPIC FOCUS: show only the selected topic, its replies and reply box */
+.kr-forum.kr-topic-focus .kr-top,
+.kr-forum.kr-topic-focus .kr-noticebar,
+.kr-forum.kr-topic-focus .kr-side,
+.kr-forum.kr-topic-focus .kr-welcome,
+.kr-forum.kr-topic-focus .kr-activity,
+.kr-forum.kr-topic-focus .kr-tickets,
+.kr-forum.kr-topic-focus .kr-section-head,
+.kr-forum.kr-topic-focus .kr-hint,
+.kr-forum.kr-topic-focus #categoryGrid,
+.kr-forum.kr-topic-focus #topicList {display:none!important}
+.kr-forum.kr-topic-focus .kr-forum-wrap {max-width:1050px;padding:18px 12px 40px}
+.kr-forum.kr-topic-focus .kr-grid {display:block;max-width:100%}
+.kr-forum.kr-topic-focus .kr-center {display:block;width:100%}
+.kr-forum.kr-topic-focus .kr-category-area {display:block!important;margin:0;padding:clamp(12px,3vw,28px);min-height:70vh;border:0;background:transparent}
+.kr-forum.kr-topic-focus #topicDetail {display:block!important;margin:0;padding:clamp(16px,3vw,32px);border:1px solid #76512f;border-radius:12px;background:#1b171d}
+.kr-forum.kr-topic-focus #topicDetail > h2 {font-size:clamp(25px,4vw,38px);line-height:1.6;margin:18px 0 24px;color:#f4c18b}
+.kr-forum.kr-topic-focus #topicDetail .topic-post {padding:20px;margin:14px 0;background:#211c23;border:1px solid #453746;border-radius:12px;font-size:14px;line-height:2.2}
+.kr-forum.kr-topic-focus #topicDetail .topic-post p {white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px}
+.kr-forum.kr-topic-focus #topicDetail .reply-form {margin-top:28px;padding:18px;background:#211c23;border:1px solid #55402e;border-radius:12px}
+.kr-forum.kr-topic-focus #topicDetail .reply-form h3 {font-size:18px}
+.kr-forum.kr-topic-focus #topicDetail .reply-form textarea {min-height:120px;font-size:14px}
+.kr-forum.kr-topic-focus #backTopics {padding:10px 20px;font-size:13px}
+@media(max-width:600px){
+ .kr-forum.kr-category-focus .kr-forum-wrap,.kr-forum.kr-topic-focus .kr-forum-wrap {padding:8px 6px 28px}
+ .kr-forum.kr-category-focus .kr-category-area,.kr-forum.kr-topic-focus .kr-category-area {padding:8px}
+ .kr-forum.kr-topic-focus #topicDetail {padding:9px}
+ .kr-forum.kr-topic-focus #topicDetail .topic-post {padding:13px}
+}
+
+/* Always-visible in-game name field in the forum login/signup modal */
+#communityAuthForm #communityGameNameWrap{display:block!important;visibility:visible!important;opacity:1!important}
+#communityAuthForm #communityGameNameWrap input{display:block!important;width:100%;min-height:44px;box-sizing:border-box}
+@media(max-width:600px){
+  #communityAuthForm{width:min(100%,430px);max-height:calc(100dvh - 24px);overflow-y:auto;padding:20px 16px}
+  #communityAuthForm #communityGameNameWrap{display:block!important;margin-top:12px}
+  #communityAuthForm #communityGameNameWrap input{font-size:16px;min-height:48px}
+}
+
+
+/* FINAL FIX: game name must be hidden in LOGIN mode even if older rules force labels visible. */
+#communityAuthForm #communityGameNameWrap.hidden { display:none !important; visibility:hidden !important; }
+#communityAuthForm #communityGameNameWrap:not(.hidden) { display:block !important; visibility:visible !important; }
+
+/* Long-message support: multiline text remains readable and wraps on mobile. */
+#community .kr-form textarea,
+#topicDetail textarea,
+.quick-topic-form textarea {
+  width: 100%;
+  min-height: 150px;
+  resize: vertical;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.9;
+  box-sizing: border-box;
+}
+#topicDetail .topic-post p,
+#myTickets p {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.kr-forum{background:#050505!important}.kr-top{background:#080807!important;border-bottom-color:#b8953e!important}.kr-panel,.kr-welcome,.kr-activity,.kr-category-area,.kr-tickets{background:#14120d!important;border-color:#3c301b!important}.kr-panel h3{background:#1c1911!important}.kr-panel h3 i{color:#e2bf62!important;background:#3b2f18!important}.kr-top nav a.active,.kr-top nav a:hover{background:#d0aa4c!important;color:#111!important}

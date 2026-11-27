@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KARASO ROLEPLAY | انجمن</title>
+<link rel="stylesheet" href="./style.css?v=20261124-impact"><link rel="stylesheet" href="./community.css?v=20261120-longtext">
+</head>
+<body class="kr-forum">
+<script src="./karaso-intro.js?v=20261124-impact"></script>
+<header class="top kr-top">
+<a class="brand" href="./index.html"><b>K</b><span>KARASO<small>ROLEPLAY COMMUNITY</small></span></a>
+<nav><a href="./index.html">صفحه اصلی</a><a href="./shop.html">فروشگاه</a><a class="active" href="./community.html">انجمن</a><a href="./launcher.html">دانلود لانچر</a><a href="./staff-commands.html">دستورات استف</a></nav>
+<div class="account-area"><span id="communityAuthState">در حال بررسی حساب...</span><button class="admin-link" id="communityLogin" onclick="document.getElementById('communityAuthOverlay').classList.add('show')">ورود / ثبت‌نام</button><button class="admin-link hidden" id="communityLogout">خروج</button><a class="admin-link hidden" id="ownerPanelLink" href="./forum-admin.html">پنل مدیریت</a></div>
+</header>
+<main class="kr-forum-wrap">
+<div class="kr-noticebar"><a href="https://rubika.ir/Samp_KarasoRolePlay" target="_blank" rel="noopener noreferrer">کانال روبیکا کاراسو رول‌پلی: @Samp_KarasoRolePlay</a><span>وب‌سایت و راهنمای سرور</span></div>
+<section class="kr-grid">
+<aside class="kr-side kr-left">
+<section class="kr-panel"><h3><i>♙</i> تیم انجمن</h3><div id="forumTeam" class="kr-panel-body"><div class="kr-person"><b class="kr-avatar">K</b><span><strong>تیم مدیریت کاراسو</strong><small>مدیریت انجمن</small></span></div><p class="kr-muted">برای مشاهده امکانات مدیریتی وارد حساب خود شوید.</p></div></section>
+<section class="kr-panel"><h3><i>★</i> اطلاعات انجمن</h3><div class="kr-panel-body"><p class="kr-muted">انجمن رسمی جامعه بازیکنان KARASO ROLEPLAY</p><div class="kr-statline"><span>آدرس سرور</span><b dir="ltr">5.42.217.107:9223</b></div><div class="kr-statline"><span>موضوعات</span><b id="allTopicCount">—</b></div></div></section>
+</aside>
+<section class="kr-center">
+<section class="kr-welcome"><div><small>KARASO ROLEPLAY COMMUNITY</small><h1>جایی برای <em>زندگی مشترک</em> بازیکنان</h1><p>اخبار، گفتگو، راهنما و تمام اتفاقات کاراسو؛ همه در یک جا.</p></div><div class="kr-welcome-stats"><b><strong id="welcomeTopics">—</strong><small>موضوعات</small></b><b><strong id="welcomePosts">—</strong><small>پاسخ‌ها</small></b><b><strong>آنلاین</strong><small>انجمن</small></b></div></section>
+<section class="kr-activity"><h3>آخرین فعالیت‌ها</h3><div id="latestActivity" class="kr-activity-grid"><p class="kr-muted">در حال دریافت اطلاعات...</p></div></section>
+<section class="kr-category-area"><div class="kr-section-head"><div><small>FORUM CATEGORIES</small><h2 id="currentCategoryTitle">انجمن کاراسو رول‌پلی</h2></div><button id="newTopicBtn" class="kr-button hidden">+ ایجاد موضوع جدید</button></div>
+<div id="topicNotice" class="kr-hint">ایجاد موضوع جدید فقط توسط Owner انجام می‌شود. کاربران می‌توانند در موضوعات باز پاسخ ثبت کنند.</div>
+<div id="categoryGrid" class="kr-category-grid"></div>
+<div id="topicList" class="kr-topic-list hidden"></div><div id="topicDetail" class="kr-topic-detail hidden"></div>
+</section>
+<section class="kr-tickets" id="tickets"><div class="kr-section-head"><div><small>PRIVATE SUPPORT</small><h2>پشتیبانی و تیکت‌ها</h2></div></div><div class="kr-ticket-grid">
+<form id="ticketForm" class="kr-form"><h3>ثبت تیکت جدید</h3><label>موضوع تیکت<input name="subject" maxlength="120" required></label><label>شرح درخواست<textarea name="message" rows="6" required></textarea></label><button class="kr-button" type="submit">ارسال تیکت</button><p class="form-error" id="ticketError"></p></form>
+<div class="kr-form"><h3>تیکت‌های من</h3><div id="myTickets">برای مشاهده تیکت‌ها وارد حساب شو.</div></div></div></section>
+</section>
+<aside class="kr-side kr-right">
+<section class="kr-panel"><h3><i>♨</i> داغ‌ترین بحث‌ها</h3><div id="hotTopics" class="kr-panel-body"><p class="kr-muted">در حال دریافت...</p></div><a class="kr-more" href="#categoryGrid">مشاهده همه دسته‌ها</a></section>
+<section class="kr-panel"><h3><i>⌖</i> خبرهای سنجاق‌شده</h3><div class="kr-panel-body"><p class="kr-muted">اطلاعیه‌های رسمی سرور در بخش اخبار و اطلاعیه‌ها منتشر می‌شوند.</p><button class="kr-outline" data-jump-cat="announcements">مشاهده اطلاعیه‌ها</button></div></section>
+<section class="kr-panel"><h3><i>◈</i> دسترسی سریع</h3><div class="kr-panel-body kr-quick"><a href="#tickets">پشتیبانی خصوصی</a><a href="./shop.html">فروشگاه</a><a href="./launcher.html">دانلود لانچر</a></div></section>
+</aside>
+</section>
+</main>
+<div class="overlay" id="communityAuthOverlay"><form class="modal" id="communityAuthForm"><button type="button" class="x" id="communityAuthClose">×</button><small>SUPABASE ACCOUNT</small><h2 id="communityAuthTitle">ورود به حساب</h2><label id="communityGameNameWrap" class="community-game-name hidden" style="display:none">نام داخل بازی (فقط هنگام ثبت‌نام)<input type="text" name="display_name" minlength="3" maxlength="24" pattern="[A-Za-z0-9_آ-ی ]+" autocomplete="nickname" placeholder="مثلاً Karaso_Player"></label><label>ایمیل<input type="email" name="email" required></label><label>رمز عبور<input type="password" name="password" minlength="6" required></label><button class="cta full" type="submit" id="communityAuthSubmit">ورود</button><button type="button" class="secondary full" id="communityAuthToggle">حساب ندارم؛ ثبت‌نام</button><button type="button" class="secondary full" id="communityForgotPassword">فراموشی رمز عبور</button><p class="form-error" id="communityAuthError"></p></form></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>if(!window.supabase){document.write('<script src="https://unpkg.com/@supabase/supabase-js@2"><\/script>')}</script><script src="./supabase-config.js"></script><script>if(!window.supabase){(()=>{const o=document.getElementById('communityAuthOverlay'),f=document.getElementById('communityAuthForm'),t=document.getElementById('communityAuthToggle'),h=document.getElementById('communityAuthTitle'),b=document.getElementById('communityAuthSubmit'),w=document.getElementById('communityGameNameWrap'),n=w.querySelector('input'),e=document.getElementById('communityAuthError');let mode='login';t.onclick=()=>{mode=mode==='login'?'signup':'login';h.textContent=mode==='login'?'ورود به حساب':'ساخت حساب';b.textContent=mode==='login'?'ورود':'ثبت‌نام';t.textContent=mode==='login'?'حساب ندارم؛ ثبت‌نام':'قبلاً حساب ساخته‌ام؛ ورود';w.classList.toggle('hidden',mode!=='signup');w.style.display=mode==='signup'?'block':'none';n.required=mode==='signup'};f.onsubmit=x=>{x.preventDefault();e.textContent='کتابخانه اتصال Supabase بارگذاری نشد؛ اتصال اینترنت/VPN را بررسی و صفحه را دوباره باز کن.'}})()}</script><script src="./community.js?v=20261120-longtext"></script>
+<script src="./auth-modal-fix.js?v=20261125-center"></script></body></html>
