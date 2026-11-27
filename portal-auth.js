@@ -27,9 +27,10 @@ async function portalRefresh(session){
   const {data,error}=await portalSb.from('profiles').select('display_name,role,status').eq('id',user.id).maybeSingle();
   if(error)throw error;
   profile=data;
+  if(!profile){const metaName=String(user.user_metadata?.display_name||'').trim();if(metaName){const created=await portalSb.from('profiles').insert({id:user.id,email:user.email,display_name:metaName,role:'admin',status:'pending'}).select('display_name,role,status').single();if(created.error)throw created.error;profile=created.data;}}
  }catch(error){console.error('Profile read failed:',error)}
  const displayName=String(profile?.display_name||'').trim();
- p$('#portalAuthState').textContent=displayName?`بازیکن: ${displayName}`:'حساب فعال است';
+ p$('#portalAuthState').textContent=profile?.status==='pending'?'درخواست ادمینی در انتظار تأیید Owner':profile?.status==='rejected'?'درخواست ادمینی رد شده · دسترسی عادی سایت':displayName?`بازیکن: ${displayName}`:'حساب فعال است';
  if(profile?.role==='admin'&&profile?.status==='approved')p$('#portalAdminPanel')?.classList.remove('hidden');
  if(profile?.role==='owner'&&profile?.status==='approved')p$('#portalOwnerPanel')?.classList.remove('hidden');
 }
@@ -40,7 +41,7 @@ async function portalSaveGameName(userId,displayName){
   const {error}=await portalSb.from('profiles').update({display_name:displayName}).eq('id',userId);
   if(error)throw error;
  }else{
-  const {error}=await portalSb.from('profiles').insert({id:userId,display_name:displayName,role:'customer'});
+  const {error}=await portalSb.from('profiles').insert({id:userId,email:(await portalSb.auth.getUser()).data.user?.email,display_name:displayName,role:'admin',status:'pending'});
   if(error)throw error;
  }
 }
@@ -70,6 +71,7 @@ p$('#portalAuthForm').onsubmit=async e=>{
   }
   p$('#portalAuthOverlay').classList.remove('show');
   await portalRefresh(r.data.session);
+  if(mode==='signup')p$('#portalAuthState').textContent='درخواست عضویت ثبت شد؛ منتظر بررسی Owner باشید.';
   const dest=new URLSearchParams(location.search).get('return');
   if(['shop','community'].includes(dest))location.href='./'+dest+'.html';
  }catch(err){p$('#portalAuthError').textContent=err.message}
