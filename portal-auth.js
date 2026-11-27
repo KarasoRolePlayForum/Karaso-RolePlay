@@ -20,17 +20,18 @@ async function portalRefresh(session){
  const user=session?.user;
  p$('#portalAuthOpen').classList.toggle('hidden',!!user);
  p$('#portalAuthLogout').classList.toggle('hidden',!user);
- p$('#portalShopAdmin').classList.add('hidden');p$('#portalForumAdmin').classList.add('hidden');
+ p$('#portalShopAdmin').classList.add('hidden');p$('#portalForumAdmin').classList.add('hidden');p$('#portalOwnerPanel').classList.add('hidden');
  if(!user){p$('#portalAuthState').textContent='وارد حساب نشده‌اید';return}
  let profile=null;
  try{
-  const {data,error}=await portalSb.from('profiles').select('display_name,role').eq('id',user.id).maybeSingle();
+  const {data,error}=await portalSb.from('profiles').select('display_name,role,status').eq('id',user.id).maybeSingle();
   if(error)throw error;
   profile=data;
  }catch(error){console.error('Profile read failed:',error)}
  const displayName=String(profile?.display_name||'').trim();
  p$('#portalAuthState').textContent=displayName?`بازیکن: ${displayName}`:'حساب فعال است';
  if(['owner','admin'].includes(profile?.role)){p$('#portalShopAdmin').classList.remove('hidden');p$('#portalForumAdmin').classList.remove('hidden')}
+ if(profile?.role==='owner'&&profile?.status==='approved'){p$('#portalOwnerPanel').classList.remove('hidden')}
 }
 async function portalSaveGameName(userId,displayName){
  const {data:existing,error:readError}=await portalSb.from('profiles').select('id').eq('id',userId).maybeSingle();
